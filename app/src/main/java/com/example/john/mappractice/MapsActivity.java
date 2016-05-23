@@ -25,8 +25,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private EditText editText;
-    private EditText editText2;
-    private EditText editText3;
 
     private TextView textview;
     private Button button;
@@ -41,8 +39,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         editText = (EditText) findViewById(R.id.edit1);
-        editText2 = (EditText) findViewById(R.id.edit2);
-        editText3 = (EditText) findViewById(R.id.edit3);
 
         textview = (TextView) findViewById(R.id.tv);
         button = (Button) findViewById(R.id.sub);
@@ -52,16 +48,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View view) {
 
                 String address = editText.getText().toString();
-                String city = editText2.getText().toString();
-                String state = editText3.getText().toString();
 
 
-                MapsModel.getInstance(MapsActivity.this).doRequest(address, city, state);
+                MapsModel.getInstance(MapsActivity.this).doRequest(address);
                         //"1520+2nd+Street,+Santa+Monica,+CA"
 
 
 
-//            playSound(MapsActivity.this,R.raw.air);
+            playSound(MapsActivity.this,R.raw.air);
                 // find();
             }
 
