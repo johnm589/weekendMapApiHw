@@ -125,11 +125,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         String address = ary[2];
 
-        textview.setText(address);
+        String newline = System.getProperty("line.separator");
+
+
+        textview.setText("Full address: " + address + newline + newline + " Latitude: " + latString + " Longitude: " + lngString);
 
         LatLng sydney = new LatLng(lat, lng);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        float zoomLevel = (float) 10.0; //This goes up to 21
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel));
 
     }
 }
